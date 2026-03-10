@@ -7,12 +7,11 @@ describe('myrres-component', () => {
       components: [MyrresComponent],
       html: `<myrres-component></myrres-component>`,
     });
-    expect(page.root).toEqualHtml(`
-      <myrres-component>
-        <mock:shadow-root>
-          <slot></slot>
-        </mock:shadow-root>
-      </myrres-component>
-    `);
+
+    const wlList = page.rootInstance as PfxAmbulanceWlList;
+    const expectedPatients = wlList?.waitingPatients?.length
+
+    const items = page.root.shadowRoot.querySelectorAll("md-list-item");
+    expect(items.length).toEqual(expectedPatients);
   });
 });
