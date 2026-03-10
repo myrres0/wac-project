@@ -8,7 +8,7 @@ describe('myrres-component', () => {
       html: `<myrres-component></myrres-component>`,
     });
 
-    const wlList = page.rootInstance as PfxAmbulanceWlList;
+    const wlList = page.rootInstance as MyrresComponent;
     const expectedPatients = wlList?.waitingPatients?.length
 
     const items = page.root.shadowRoot.querySelectorAll("md-list-item");
